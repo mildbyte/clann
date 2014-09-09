@@ -1,0 +1,7 @@
+CFLAGS += -Wall
+CFLAGS += -std=c++11
+
+LDFLAGS += -larmadillo
+
+: foreach *.cpp |> g++ $(CFLAGS) -c %f -o %o |> %B.o
+: *.o |> g++ $(LDFLAGS) %f -o %o |> clann
